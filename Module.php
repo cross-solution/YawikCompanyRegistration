@@ -1,0 +1,55 @@
+<?php
+/**
+ * YAWIK
+ * 
+ * @filesource
+ * @copyright (c) 2013-2015 Cross Solution (http://cross-solution.de)
+ * @license   MIT
+ * @author    weitz@cross-solution.de
+ */
+
+namespace YawikCompanyRegistration;
+
+use Core\ModuleManager\ModuleConfigLoader;
+use Zend\ModuleManager\Feature\DependencyIndicatorInterface;
+
+
+/**
+ * Bootstrap class of the organizations module
+ */
+class Module implements DependencyIndicatorInterface
+{
+
+    /**
+     * Loads module specific configuration.
+     *
+     * @return array
+     */
+    public function getConfig()
+    {
+        return ModuleConfigLoader::load(__DIR__ . '/config');
+    }
+
+    /**
+     * Loads module specific autoloader configuration.
+     *
+     * @return array
+     */
+    public function getAutoloaderConfig()
+    {
+
+        return array(
+            'Zend\Loader\StandardAutoloader' => array(
+                'namespaces' => array(
+                    __NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__,
+                    __NAMESPACE__ . 'Test' => __DIR__ . '/test/' . __NAMESPACE__ . 'Test'
+                ),
+            ),
+        );
+    }
+
+    public function getModuleDependencies()
+    {
+        return array('Auth', 'Organizations');
+    }
+}
