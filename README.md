@@ -21,4 +21,6 @@ array in https://github.com/cross-solution/YAWIK/blob/develop/config/config.php
 License
 -------
 
-MIT https://github.com/cross-solution/YawikCompanyRegistration/blob/master/LICENSE
+MIT 
+
+https://github.com/cross-solution/YawikCompanyRegistration/blob/master/LICENSE
