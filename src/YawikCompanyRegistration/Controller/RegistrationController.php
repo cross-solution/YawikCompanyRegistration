@@ -24,6 +24,8 @@ class RegistrationController extends AbstractCoreController
     protected $options;
 
     /**
+     * Module options
+     *
      * @param AbstractOptions $options
      */
     public function __construct(AbstractOptions $options)
