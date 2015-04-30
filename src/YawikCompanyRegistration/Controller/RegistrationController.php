@@ -14,6 +14,8 @@ use Core\Controller\AbstractCoreController;
 use Core\Entity\PermissionsInterface;
 use Zend\Stdlib\AbstractOptions;
 use Zend\View\Model\ViewModel;
+use Auth\Entity\UserInterface;
+use Auth\Service\Exception\UserAlreadyExistsException;
 
 /**
  * Class RegistrationController
@@ -44,7 +46,9 @@ class RegistrationController extends AbstractCoreController
         $services                 = $this->getServiceLocator();
         $repositories             = $services->get('repositories');
         $repositoriesOrganization = $repositories->get('Organizations/Organization');
+        $userRepository           = $repositories->get('Auth/User');
         $registerService          = $services->get('Auth\Service\Register');
+        $logger                   = $services->get('Core/Log');
         $formManager              = $services->get('FormElementManager');
         $config                   = $services->get('Config');
         $captchaConfig            = isset($config['captcha']) ? $config['captcha'] : array();
@@ -62,10 +66,9 @@ class RegistrationController extends AbstractCoreController
                     $register = $form->get('register');
                     $name = $register->get('name')->getValue();
                     $email = $register->get('email')->getValue();
-
                     $user = $registerService->proceedWithEmail($name, $email, $mailer, $url);
 
-                    if (isset($user)) {
+                    if (isset($user) && user instanceof UserInterface) {
                         $user->info->houseNumber = $register->get('houseNumber')->getValue();
                         $user->info->phone = $register->get('phone')->getValue();
                         $user->info->postalCode = $register->get('postalCode')->getValue();
@@ -89,6 +92,7 @@ class RegistrationController extends AbstractCoreController
                         $this->notification()->success(
                         /*@translate*/ 'An Email with an activation link has been sent, please try to check your email box'
                         );
+                        $logger->info('Mail first-login sent to ' . $user->info->getDisplayName() . ' (' . $email . ')');
                     }
                     else {
                         $this->notification()->danger(
@@ -96,12 +100,23 @@ class RegistrationController extends AbstractCoreController
                         );
                     }
                 }
+                catch (UserAlreadyExistsException $e) {
+
+                    $this->notification()->danger(
+                        /*@translate*/ 'User can not be created'
+                    );
+
+                    $this->notification()->info(
+                         json_encode(array('message' => /*@translate*/ 'user with this e-mail address already exists', 'target' => 'register-email-errors'))
+                    );
+                }
                 catch (\Exception $e) {
                     $this->notification()->danger(
                     /*@translate*/ 'Please fill form correctly'
                     );
                 }
             } else {
+                $messages = $form->getMessages();
                 $this->notification()->danger(
                 /*@translate*/ 'Please fill form correctly'
                 );
