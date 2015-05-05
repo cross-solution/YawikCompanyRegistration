@@ -82,6 +82,7 @@ class RegistrationController extends AbstractCoreController
                         $organization->contact->city = $register->get('city')->getValue();
                         $organization->contact->street = $register->get('street')->getValue();
                         $organization->contact->houseNumber = $register->get('houseNumber')->getValue();
+                        $organization->user = $user;
 
                         $permissions = $organization->getPermissions();
                         $permissions->grant($user, PermissionsInterface::PERMISSION_ALL);
