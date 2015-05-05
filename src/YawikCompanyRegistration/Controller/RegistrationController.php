@@ -68,7 +68,7 @@ class RegistrationController extends AbstractCoreController
                     $email = $register->get('email')->getValue();
                     $user = $registerService->proceedWithEmail($name, $email, $mailer, $url);
 
-                    if (isset($user) && user instanceof UserInterface) {
+                    if (isset($user) && $user instanceof UserInterface) {
                         $user->info->houseNumber = $register->get('houseNumber')->getValue();
                         $user->info->phone = $register->get('phone')->getValue();
                         $user->info->postalCode = $register->get('postalCode')->getValue();
@@ -93,8 +93,10 @@ class RegistrationController extends AbstractCoreController
                         /*@translate*/ 'An Email with an activation link has been sent, please try to check your email box'
                         );
                         $logger->info('Mail first-login sent to ' . $user->info->getDisplayName() . ' (' . $email . ')');
+
                     }
                     else {
+                        // this branch is obsolete unless we do decide not to use an exception anymore, whenever something goes wrong with the user
                         $this->notification()->danger(
                         /*@translate*/ 'User can not be created'
                         );
