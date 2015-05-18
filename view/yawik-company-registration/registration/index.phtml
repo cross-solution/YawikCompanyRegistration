@@ -1,15 +1,20 @@
 <?php
     $this->headTitle($this->translate("Register"));
 ?>
-<h1>
-<?php
-    echo $this->translate("Register");
-?>
-</h1>
-<br />
-<?php
-$form = $this->form;
-echo $this->form($form);
-?>
+<h1><?php echo $this->translate("Register"); ?></h1>
 
+    <div class="row">
+
+
+        <div class="col-md-6">
+            <div>
+                <?php echo $this->form($this->form);?>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="alert alert-info">
+                <?php echo $this->translate("After registration, you'll receive an email with a confirmation link. Please confirm you email address.") ?>
+            </div>
+        </div>
+    </div>
 
