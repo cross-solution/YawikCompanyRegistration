@@ -1,19 +1,47 @@
 <?php
-    $this->headTitle($this->translate("Register"));
-?>
-<h1><?php echo $this->translate("Register"); ?></h1>
 
+$this->headTitle($this->translate("Register"));
+
+?>
     <div class="row">
 
 
         <div class="col-md-6">
-            <div>
-                <?php echo $this->form($this->form);?>
+
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <?php echo $this->translate("I'm not yet a customer"); ?>
+                </div>
+                <div class="panel-body">
+                    <?php echo $this->form($this->form);?>
+                </div>
             </div>
         </div>
         <div class="col-md-6">
-            <div class="alert alert-info">
-                <?php echo $this->translate("After registration, you'll receive an email with a confirmation link. Please confirm you email address.") ?>
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <?php echo $this->translate("I am already a customer"); ?>
+                </div>
+                <div class="panel-body">
+                    <div class="form-container">
+
+
+                        <div class="form-content">
+                            <?php echo  $this->form()->openTag($this->formLogin); ?>
+                            <?php echo  $this->formCollection($this->formLogin->get('credentials')); ?>
+                            <div class="row">
+                                <div class="col-md-3">&nbsp;</div>
+                                <div class="col-md-3">
+                                    <a href="<?php echo  $this->url('lang/forgot-password'); ?>" title="<?php echo  $this->translate('I forgot my password'); ?>" class="small">
+                                        <?php echo  $this->translate('I forgot my password'); ?>
+                                    </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </div>
+                            </div>
+                            <?php echo  $this->formRow($form->get('buttons')); ?>
+                        </div>
+                    </div>
+                </div>
+                <?php echo  $this->form()->closeTag($this->formLogin); ?>
             </div>
         </div>
     </div>

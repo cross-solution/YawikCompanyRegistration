@@ -34,6 +34,7 @@ class RegisterFactory implements FactoryInterface
 
         $options = new RegisterControllerOptions(array());
 
+
         return new RegistrationController($options);
     }
 }

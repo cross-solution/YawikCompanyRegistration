@@ -23,6 +23,9 @@ use Auth\Service\Exception\UserAlreadyExistsException;
  */
 class RegistrationController extends AbstractCoreController
 {
+    /**
+     * @var AbstractOptions
+     */
     protected $options;
 
     /**
@@ -46,13 +49,15 @@ class RegistrationController extends AbstractCoreController
         $services                 = $this->getServiceLocator();
         $repositories             = $services->get('repositories');
         $repositoriesOrganization = $repositories->get('Organizations/Organization');
-        $userRepository           = $repositories->get('Auth/User');
         $registerService          = $services->get('Auth\Service\Register');
         $logger                   = $services->get('Core/Log');
         $formManager              = $services->get('FormElementManager');
         $config                   = $services->get('Config');
         $captchaConfig            = isset($config['captcha']) ? $config['captcha'] : array();
         $form                     = $formManager->get('Registration\Form\Register', array('captcha' => $captchaConfig));
+        $formLogin                = $formManager->get('Auth\Form\Login');
+        $formLogin->setAttribute("action","/de/login?ref=".urlencode("/de/jobs/edit")."&req=1");
+        $formLogin->setAttribute("class","form-horizontal");
         $viewModel                = new ViewModel();
 
         if ($request->isPost()) {
@@ -126,6 +131,8 @@ class RegistrationController extends AbstractCoreController
             }
         }
         $viewModel->setVariable('form', $form);
+        $viewModel->setVariable('formLogin', $formLogin);
+
         return $viewModel;
     }
 
