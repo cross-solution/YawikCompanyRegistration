@@ -115,7 +115,8 @@ class RegistrationController extends AbstractCoreController
                     );
 
                     $this->notification()->info(
-                         json_encode(array('message' => /*@translate*/ 'user with this e-mail address already exists', 'target' => 'register-email-errors'))
+                         json_encode(array('message' => /*@translate*/ 'user with this e-mail address already exists',
+                                           'target' => 'register-email-errors'))
                     );
                 }
                 catch (\Exception $e) {

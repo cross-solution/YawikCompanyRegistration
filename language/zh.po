@@ -1,0 +1,95 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: YAWIK\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-05-28 18:19+0200\n"
+"PO-Revision-Date: 2015-05-28 16:20+0000\n"
+"Last-Translator: Carsten Bleek <cbleek@yawik.org>\n"
+"Language-Team: Chinese (http://www.transifex.com/projects/p/yawik/language/zh/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: view/yawik-company-registration/registration/index.phtml:3
+#: language/_annotated_strings.php:30
+msgid "Register"
+msgstr "注册"
+
+#: view/yawik-company-registration/registration/index.phtml:13
+msgid "I'm not yet a customer"
+msgstr ""
+
+#: view/yawik-company-registration/registration/index.phtml:23
+msgid "I am already a customer"
+msgstr ""
+
+#: view/yawik-company-registration/registration/index.phtml:35
+#: view/yawik-company-registration/registration/index.phtml:36
+msgid "I forgot my password"
+msgstr "我忘记了密码"
+
+#: view/yawik-company-registration/registration/complete.phtml:2
+msgid "The registration has been successful"
+msgstr ""
+
+#: view/yawik-company-registration/registration/complete.phtml:4
+#: language/_annotated_strings.php:33
+msgid ""
+"An Email with an activation link has been sent, please try to check your "
+"email box"
+msgstr "一封电子邮件，激活链接已发送，请尝试检查您的电子邮箱"
+
+#: language/_annotated_strings.php:3
+msgid "Name"
+msgstr "名字"
+
+#: language/_annotated_strings.php:6
+msgid "Email"
+msgstr "电子邮件"
+
+#: language/_annotated_strings.php:9
+msgid "Organizationname"
+msgstr "单位名称"
+
+#: language/_annotated_strings.php:12
+msgid "Postalcode"
+msgstr "邮政编码"
+
+#: language/_annotated_strings.php:15
+msgid "City"
+msgstr "城市"
+
+#: language/_annotated_strings.php:18
+msgid "Street"
+msgstr "街头"
+
+#: language/_annotated_strings.php:21
+msgid "house number"
+msgstr "门牌号码"
+
+#: language/_annotated_strings.php:24
+msgid "Phone"
+msgstr "电话"
+
+#: language/_annotated_strings.php:27
+msgid "Are you human?"
+msgstr "你是人类？"
+
+#: language/_annotated_strings.php:36 language/_annotated_strings.php:39
+msgid "User can not be created"
+msgstr ""
+
+#: language/_annotated_strings.php:42
+msgid "user with this e-mail address already exists"
+msgstr ""
+
+#: language/_annotated_strings.php:45 language/_annotated_strings.php:48
+msgid "Please fill form correctly"
+msgstr "请正确填写表格"
