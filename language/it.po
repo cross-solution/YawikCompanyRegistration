@@ -1,0 +1,96 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# BLU-IT, 2015
+msgid ""
+msgstr ""
+"Project-Id-Version: YAWIK\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-05-28 18:19+0200\n"
+"PO-Revision-Date: 2015-06-02 11:50+0000\n"
+"Last-Translator: BLU-IT\n"
+"Language-Team: Italian (http://www.transifex.com/projects/p/yawik/language/it/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: it\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: view/yawik-company-registration/registration/index.phtml:3
+#: language/_annotated_strings.php:30
+msgid "Register"
+msgstr "Registrati"
+
+#: view/yawik-company-registration/registration/index.phtml:13
+msgid "I'm not yet a customer"
+msgstr "Non sono ancora un cliente"
+
+#: view/yawik-company-registration/registration/index.phtml:23
+msgid "I am already a customer"
+msgstr "Sono già cliente"
+
+#: view/yawik-company-registration/registration/index.phtml:35
+#: view/yawik-company-registration/registration/index.phtml:36
+msgid "I forgot my password"
+msgstr "Ho dimenticato la mia password"
+
+#: view/yawik-company-registration/registration/complete.phtml:2
+msgid "The registration has been successful"
+msgstr "La registrazione ha avuto successo"
+
+#: view/yawik-company-registration/registration/complete.phtml:4
+#: language/_annotated_strings.php:33
+msgid ""
+"An Email with an activation link has been sent, please try to check your "
+"email box"
+msgstr "Una e-mail con un link di attivazione è stata inviata. Si prega di controllare la casella di posta elettronica."
+
+#: language/_annotated_strings.php:3
+msgid "Name"
+msgstr "Nome"
+
+#: language/_annotated_strings.php:6
+msgid "Email"
+msgstr "Email"
+
+#: language/_annotated_strings.php:9
+msgid "Organizationname"
+msgstr "Nome organizzazione"
+
+#: language/_annotated_strings.php:12
+msgid "Postalcode"
+msgstr "C.A.P"
+
+#: language/_annotated_strings.php:15
+msgid "City"
+msgstr "Città"
+
+#: language/_annotated_strings.php:18
+msgid "Street"
+msgstr "Strada"
+
+#: language/_annotated_strings.php:21
+msgid "house number"
+msgstr "numero civico"
+
+#: language/_annotated_strings.php:24
+msgid "Phone"
+msgstr "Telefono"
+
+#: language/_annotated_strings.php:27
+msgid "Are you human?"
+msgstr "Sei umano?"
+
+#: language/_annotated_strings.php:36 language/_annotated_strings.php:39
+msgid "User can not be created"
+msgstr "L'utente non può essere creato"
+
+#: language/_annotated_strings.php:42
+msgid "user with this e-mail address already exists"
+msgstr "utente con questo indirizzo e-mail esiste già"
+
+#: language/_annotated_strings.php:45 language/_annotated_strings.php:48
+msgid "Please fill form correctly"
+msgstr "Si prega di compilare il modula correttamente"

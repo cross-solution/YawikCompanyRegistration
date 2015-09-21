@@ -1,7 +1,7 @@
 <?php
 /**
  * YAWIK
- * 
+ *
  * @filesource
  * @copyright (c) 2013-2015 Cross Solution (http://cross-solution.de)
  * @license   MIT
@@ -33,6 +33,7 @@ class RegisterFactory implements FactoryInterface
     {
 
         $options = new RegisterControllerOptions(array());
+
 
         return new RegistrationController($options);
     }

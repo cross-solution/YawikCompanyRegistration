@@ -1,7 +1,7 @@
 <?php
 /**
  * YAWIK
- * 
+ *
  * @filesource
  * @copyright (c) 2013-2015 Cross Solution (http://cross-solution.de)
  * @license   MIT
@@ -12,6 +12,7 @@ namespace YawikCompanyRegistration\Options;
 
 use Zend\Stdlib\AbstractOptions;
 
-class RegisterControllerOptions extends AbstractOptions {
+class RegisterControllerOptions extends AbstractOptions
+{
 
 }

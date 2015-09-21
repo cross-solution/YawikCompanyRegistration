@@ -1,7 +1,7 @@
 <?php
 /**
  * YAWIK
- * 
+ *
  * @filesource
  * @copyright (c) 2013-2015 Cross Solution (http://cross-solution.de)
  * @license   MIT
@@ -23,6 +23,9 @@ use Auth\Service\Exception\UserAlreadyExistsException;
  */
 class RegistrationController extends AbstractCoreController
 {
+    /**
+     * @var AbstractOptions
+     */
     protected $options;
 
     /**
@@ -40,7 +43,7 @@ class RegistrationController extends AbstractCoreController
     /**
      * @return array|ViewModel
      */
-    public function indexAction ()
+    public function indexAction()
     {
         $request                  = $this->getRequest();
         $services                 = $this->getServiceLocator();
@@ -53,6 +56,9 @@ class RegistrationController extends AbstractCoreController
         $config                   = $services->get('Config');
         $captchaConfig            = isset($config['captcha']) ? $config['captcha'] : array();
         $form                     = $formManager->get('Registration\Form\Register', array('captcha' => $captchaConfig));
+        $formLogin                = $formManager->get('Auth\Form\Login');
+        $formLogin->setAttribute("action", "/de/login?ref=".urlencode("/de/jobs/edit")."&req=1");
+        $formLogin->setAttribute("class", "form-horizontal");
         $viewModel                = new ViewModel();
 
         if ($request->isPost()) {
@@ -68,7 +74,8 @@ class RegistrationController extends AbstractCoreController
                     $email = $register->get('email')->getValue();
                     $user = $registerService->proceedWithEmail($name, $email, $mailer, $url);
 
-                    if (isset($user) && user instanceof UserInterface) {
+                    if (isset($user) && $user instanceof UserInterface) {
+
                         $user->info->houseNumber = $register->get('houseNumber')->getValue();
                         $user->info->phone = $register->get('phone')->getValue();
                         $user->info->postalCode = $register->get('postalCode')->getValue();
@@ -82,6 +89,7 @@ class RegistrationController extends AbstractCoreController
                         $organization->contact->city = $register->get('city')->getValue();
                         $organization->contact->street = $register->get('street')->getValue();
                         $organization->contact->houseNumber = $register->get('houseNumber')->getValue();
+                        $organization->user = $user;
 
                         $permissions = $organization->getPermissions();
                         $permissions->grant($user, PermissionsInterface::PERMISSION_ALL);
@@ -90,40 +98,43 @@ class RegistrationController extends AbstractCoreController
                         $viewModel->setTemplate('registration\completed');
 
                         $this->notification()->success(
-                        /*@translate*/ 'An Email with an activation link has been sent, please try to check your email box'
+                            /*@translate*/ 'An Email with an activation link has been sent, please try to check your email box'
                         );
                         $logger->info('Mail first-login sent to ' . $user->info->getDisplayName() . ' (' . $email . ')');
-                    }
-                    else {
+                    } else {
+                        // this branch is obsolete unless we do decide not to use an exception anymore, whenever something goes wrong with the user
+
                         $this->notification()->danger(
-                        /*@translate*/ 'User can not be created'
+                            /*@translate*/ 'User can not be created'
                         );
                     }
-                }
-                catch (UserAlreadyExistsException $e) {
+                } catch (UserAlreadyExistsException $e) {
 
                     $this->notification()->danger(
                         /*@translate*/ 'User can not be created'
                     );
 
                     $this->notification()->info(
-                         json_encode(array('message' => /*@translate*/ 'user with this e-mail address already exists', 'target' => 'register-email-errors'))
+                        json_encode(
+                            array('message' => /*@translate*/ 'user with this e-mail address already exists',
+                                           'target' => 'register-email-errors')
+                        )
                     );
-                }
-                catch (\Exception $e) {
+                } catch (\Exception $e) {
                     $this->notification()->danger(
-                    /*@translate*/ 'Please fill form correctly'
+                        /*@translate*/ 'Please fill form correctly'
                     );
                 }
             } else {
                 $messages = $form->getMessages();
                 $this->notification()->danger(
-                /*@translate*/ 'Please fill form correctly'
+                    /*@translate*/ 'Please fill form correctly'
                 );
             }
         }
         $viewModel->setVariable('form', $form);
+        $viewModel->setVariable('formLogin', $formLogin);
+
         return $viewModel;
     }
-
 }
