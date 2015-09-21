@@ -1,7 +1,7 @@
 <?php
 /**
  * YAWIK
- * 
+ *
  * @filesource
  * @copyright (c) 2013-2015 Cross Solution (http://cross-solution.de)
  * @license   MIT
@@ -29,7 +29,7 @@ class Register extends Form
         $fieldset->setOptions(array('renderFieldset' => true));
 
         $fieldset->add(
-                 array(
+            array(
                      'type' => 'text',
                      'name' => 'name',
                      'options' => array(
@@ -39,7 +39,7 @@ class Register extends Form
         );
 
         $fieldset->add(
-                 array(
+            array(
                      'type' => 'email',
                      'name' => 'email',
                      'options' => array(
@@ -49,7 +49,7 @@ class Register extends Form
         );
 
         $fieldset->add(
-                 array(
+            array(
                      'type' => 'text',
                      'name' => 'organizationName',
                      'options' => array(
@@ -59,7 +59,7 @@ class Register extends Form
         );
 
         $fieldset->add(
-                 array(
+            array(
                      'type' => 'text',
                      'name' => 'postalCode',
                      'options' => array(
@@ -69,7 +69,7 @@ class Register extends Form
         );
 
         $fieldset->add(
-                 array(
+            array(
                      'type' => 'text',
                      'name' => 'city',
                      'options' => array(
@@ -79,7 +79,7 @@ class Register extends Form
         );
 
         $fieldset->add(
-                 array(
+            array(
                      'type' => 'text',
                      'name' => 'street',
                      'options' => array(
@@ -89,7 +89,7 @@ class Register extends Form
         );
 
         $fieldset->add(
-                 array(
+            array(
                      'type' => 'text',
                      'name' => 'houseNumber',
                      'options' => array(
@@ -99,7 +99,7 @@ class Register extends Form
         );
 
         $fieldset->add(
-                 array(
+            array(
                      'type' => 'text',
                      'name' => 'phone',
                      'options' => array(
@@ -129,20 +129,22 @@ class Register extends Form
             }
 
             if (!empty($captcha)) {
-                $this->add(array(
+                $this->add(
+                    array(
                     'name' => 'captcha',
                     'options' => array(
                         'label' => /*@translate*/ 'Are you human?',
                         'captcha' => $captcha,
                     ),
                     'type' => 'Zend\Form\Element\Captcha',
-                ));
+                    )
+                );
             }
         }
 
         $buttons = new ButtonsFieldset('buttons');
         $buttons->add(
-                array(
+            array(
                     'type' => 'submit',
                     'name' => 'button',
                     'attributes' => array(
@@ -154,7 +156,7 @@ class Register extends Form
         );
 
         $this->add(
-             array(
+            array(
                  'name' => 'csrf',
                  'type' => 'csrf',
                  'options' => array(

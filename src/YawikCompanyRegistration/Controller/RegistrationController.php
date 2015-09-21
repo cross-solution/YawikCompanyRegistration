@@ -1,7 +1,7 @@
 <?php
 /**
  * YAWIK
- * 
+ *
  * @filesource
  * @copyright (c) 2013-2015 Cross Solution (http://cross-solution.de)
  * @license   MIT
@@ -43,7 +43,7 @@ class RegistrationController extends AbstractCoreController
     /**
      * @return array|ViewModel
      */
-    public function indexAction ()
+    public function indexAction()
     {
         $request                  = $this->getRequest();
         $services                 = $this->getServiceLocator();
@@ -56,8 +56,8 @@ class RegistrationController extends AbstractCoreController
         $captchaConfig            = isset($config['captcha']) ? $config['captcha'] : array();
         $form                     = $formManager->get('Registration\Form\Register', array('captcha' => $captchaConfig));
         $formLogin                = $formManager->get('Auth\Form\Login');
-        $formLogin->setAttribute("action","/de/login?ref=".urlencode("/de/jobs/edit")."&req=1");
-        $formLogin->setAttribute("class","form-horizontal");
+        $formLogin->setAttribute("action", "/de/login?ref=".urlencode("/de/jobs/edit")."&req=1");
+        $formLogin->setAttribute("class", "form-horizontal");
         $viewModel                = new ViewModel();
 
         if ($request->isPost()) {
@@ -96,38 +96,36 @@ class RegistrationController extends AbstractCoreController
                         $viewModel->setTemplate('registration\completed');
 
                         $this->notification()->success(
-                        /*@translate*/ 'An Email with an activation link has been sent, please try to check your email box'
+                            /*@translate*/ 'An Email with an activation link has been sent, please try to check your email box'
                         );
                         $logger->info('Mail first-login sent to ' . $user->info->getDisplayName() . ' (' . $email . ')');
 
-                    }
-                    else {
+                    } else {
                         // this branch is obsolete unless we do decide not to use an exception anymore, whenever something goes wrong with the user
                         $this->notification()->danger(
-                        /*@translate*/ 'User can not be created'
+                            /*@translate*/ 'User can not be created'
                         );
                     }
-                }
-                catch (UserAlreadyExistsException $e) {
-
+                } catch (UserAlreadyExistsException $e) {
                     $this->notification()->danger(
                         /*@translate*/ 'User can not be created'
                     );
 
                     $this->notification()->info(
-                         json_encode(array('message' => /*@translate*/ 'user with this e-mail address already exists',
-                                           'target' => 'register-email-errors'))
+                        json_encode(
+                            array('message' => /*@translate*/ 'user with this e-mail address already exists',
+                                           'target' => 'register-email-errors')
+                        )
                     );
-                }
-                catch (\Exception $e) {
+                } catch (\Exception $e) {
                     $this->notification()->danger(
-                    /*@translate*/ 'Please fill form correctly'
+                        /*@translate*/ 'Please fill form correctly'
                     );
                 }
             } else {
                 $messages = $form->getMessages();
                 $this->notification()->danger(
-                /*@translate*/ 'Please fill form correctly'
+                    /*@translate*/ 'Please fill form correctly'
                 );
             }
         }
@@ -136,5 +134,4 @@ class RegistrationController extends AbstractCoreController
 
         return $viewModel;
     }
-
 }

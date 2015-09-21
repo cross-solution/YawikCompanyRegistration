@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# BLU-IT, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: YAWIK\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-05-28 18:19+0200\n"
-"PO-Revision-Date: 2015-05-28 16:20+0000\n"
-"Last-Translator: Carsten Bleek <cbleek@yawik.org>\n"
+"PO-Revision-Date: 2015-06-02 11:50+0000\n"
+"Last-Translator: BLU-IT\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/yawik/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,11 +25,11 @@ msgstr "Registrati"
 
 #: view/yawik-company-registration/registration/index.phtml:13
 msgid "I'm not yet a customer"
-msgstr ""
+msgstr "Non sono ancora un cliente"
 
 #: view/yawik-company-registration/registration/index.phtml:23
 msgid "I am already a customer"
-msgstr ""
+msgstr "Sono già cliente"
 
 #: view/yawik-company-registration/registration/index.phtml:35
 #: view/yawik-company-registration/registration/index.phtml:36
@@ -37,7 +38,7 @@ msgstr "Ho dimenticato la mia password"
 
 #: view/yawik-company-registration/registration/complete.phtml:2
 msgid "The registration has been successful"
-msgstr ""
+msgstr "La registrazione ha avuto successo"
 
 #: view/yawik-company-registration/registration/complete.phtml:4
 #: language/_annotated_strings.php:33
@@ -84,11 +85,11 @@ msgstr "Sei umano?"
 
 #: language/_annotated_strings.php:36 language/_annotated_strings.php:39
 msgid "User can not be created"
-msgstr ""
+msgstr "L'utente non può essere creato"
 
 #: language/_annotated_strings.php:42
 msgid "user with this e-mail address already exists"
-msgstr ""
+msgstr "utente con questo indirizzo e-mail esiste già"
 
 #: language/_annotated_strings.php:45 language/_annotated_strings.php:48
 msgid "Please fill form correctly"

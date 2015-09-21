@@ -46,4 +46,3 @@ translate('Please fill form correctly');
 
 //: ./src/YawikCompanyRegistration/Controller/RegistrationController.php:130
 translate('Please fill form correctly');
-
