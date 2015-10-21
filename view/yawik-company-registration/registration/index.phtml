@@ -4,13 +4,10 @@ $this->headTitle($this->translate("Register"));
 
 ?>
     <div class="row">
-
-
         <div class="col-md-6">
-
             <div class="panel panel-info">
                 <div class="panel-heading">
-                    <h3><?php echo $this->translate("I'm not yet a customer"); ?></h3>
+                    <?php echo $this->translate("I'm not yet a customer"); ?>
                 </div>
                 <div class="panel-body">
                     <?php echo $this->form($this->form);?>
@@ -20,12 +17,10 @@ $this->headTitle($this->translate("Register"));
         <div class="col-md-6">
             <div class="panel panel-info">
                 <div class="panel-heading">
-                    <h3><?php echo $this->translate("I am already a customer"); ?></h3>
+                    <?php echo $this->translate("I am already a customer"); ?>
                 </div>
                 <div class="panel-body">
                     <div class="form-container">
-
-
                         <div class="form-content">
                             <?php echo  $this->form()->openTag($this->formLogin); ?>
                             <?php echo  $this->formCollection($this->formLogin->get('credentials')); ?>

@@ -28,6 +28,25 @@ class Register extends Form
         $fieldset = new Fieldset('register');
         $fieldset->setOptions(array('renderFieldset' => true));
 
+        $this->add(
+            array(
+                'name' => 'gender',
+                'type' => 'Zend\Form\Element\Select',
+                'options' => array(
+                    'label' => /*@translate */ 'Salutation',
+                    'value_options' => array(
+                        '' => '', // => /*@translate */ 'please select',
+                        'male' => /*@translate */ 'Mr.',
+                        'female' => /*@translate */ 'Mrs.',
+                    )
+                ),
+                'attributes' => array(
+                    'data-placeholder' => /*@translate*/ 'please select',
+                    'data-allowclear' => 'true',
+                ),
+            )
+        );
+
         $fieldset->add(
             array(
                      'type' => 'text',

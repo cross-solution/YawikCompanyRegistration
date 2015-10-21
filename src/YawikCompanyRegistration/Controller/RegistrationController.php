@@ -81,6 +81,7 @@ class RegistrationController extends AbstractCoreController
                         $user->info->postalCode = $register->get('postalCode')->getValue();
                         $user->info->city = $register->get('city')->getValue();
                         $user->info->street = $register->get('street')->getValue();
+                        $user->info->gender = $register->get('gender')->getValue();
                         $repositories->store($user);
 
                         $organizationName = $register->get('organizationName')->getValue();
