@@ -43,6 +43,7 @@ class Register extends Form
                 'attributes' => array(
                     'data-placeholder' => /*@translate*/ 'please select',
                     'data-allowclear' => 'true',
+                    'required' => true
                 ),
             )
         );
@@ -54,6 +55,9 @@ class Register extends Form
                      'options' => array(
                          'label' => /*@translate*/ 'Name',
                      ),
+                     'attributes' => [
+                         'required' => true
+                     ],
                  )
         );
 
@@ -64,6 +68,9 @@ class Register extends Form
                      'options' => array(
                          'label' => /*@translate*/ 'Email',
                      ),
+                     'attributes' => [
+                         'required' => true
+                     ],                     
                  )
         );
 
@@ -74,6 +81,9 @@ class Register extends Form
                      'options' => array(
                          'label' => /*@translate*/ 'Organizationname',
                      ),
+                     'attributes' => [
+                         'required' => true
+                     ],
                  )
         );
 
@@ -84,6 +94,9 @@ class Register extends Form
                      'options' => array(
                          'label' => /*@translate*/ 'Postalcode',
                      ),
+                     'attributes' => [
+                         'required' => true
+                     ],
                  )
         );
 
@@ -94,6 +107,9 @@ class Register extends Form
                      'options' => array(
                          'label' => /*@translate*/ 'City',
                      ),
+                     'attributes' => [
+                         'required' => true
+                     ],
                  )
         );
 
@@ -104,6 +120,9 @@ class Register extends Form
                      'options' => array(
                          'label' => /*@translate*/ 'Street',
                      ),
+                     'attributes' => [
+                         'required' => true
+                     ],
                  )
         );
 
@@ -114,6 +133,9 @@ class Register extends Form
                      'options' => array(
                          'label' => /*@translate*/ 'house number',
                      ),
+                     'attributes' => [
+                         'required' => true
+                     ],
                  )
         );
 
@@ -124,19 +146,11 @@ class Register extends Form
                      'options' => array(
                          'label' => /*@translate*/ 'Phone',
                      ),
+                     'attributes' => [
+                         'required' => true
+                     ],
                  )
         );
-
-//        $fieldset->add(
-//                 array(
-//                     'name' => 'role',
-//                     'type' => 'hidden',
-//                     'attributes' => array(
-//                         'value' => User::ROLE_RECRUITER,
-//                     ),
-//                 )
-//        );
-
 
         $this->add($fieldset);
 

@@ -1,9 +1,6 @@
 {
     "name": "cross-solution/yawik-company-registration",
     "description": "This module enables registration of a company.",
-    "require": {
-        "cross-solution/yawik": "^0.21.1"
-    },
     "license": "MIT",
     "authors": [
         {
