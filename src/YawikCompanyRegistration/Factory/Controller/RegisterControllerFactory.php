@@ -19,9 +19,8 @@ use YawikCompanyRegistration\Options\RegisterControllerOptions;
  * Class RegisterFactory
  * @package Registration\Factory\Controller
  */
-class RegisterFactory implements FactoryInterface
+class RegisterControllerFactory implements FactoryInterface
 {
-
     /**
      * Create service
      *
@@ -33,7 +32,6 @@ class RegisterFactory implements FactoryInterface
     {
 
         $options = new RegisterControllerOptions(array());
-
 
         return new RegistrationController($options);
     }

@@ -15,12 +15,14 @@ use Core\Form\Form;
 use Zend\Captcha\Image;
 use Zend\Captcha\ReCaptcha;
 use Zend\Form\Fieldset;
+use Auth\Options\CaptchaOptions;
+use Auth\Entity\User;
 
 class Register extends Form
 {
-    public function __construct($name = 'register-form', $options = array())
+    public function __construct($name = 'register-form', CaptchaOptions $options, $role = 'recruiter')
     {
-        parent::__construct($name, $options);
+        parent::__construct($name, []);
 
         $this->setAttribute('data-handle-by', 'native');
         $this->setAttribute('class', 'form-horizontal');
@@ -28,7 +30,7 @@ class Register extends Form
         $fieldset = new Fieldset('register');
         $fieldset->setOptions(array('renderFieldset' => true));
 
-        $this->add(
+        $fieldset->add(
             array(
                 'name' => 'gender',
                 'type' => 'Zend\Form\Element\Select',
@@ -42,7 +44,8 @@ class Register extends Form
                 ),
                 'attributes' => array(
                     'data-placeholder' => /*@translate*/ 'please select',
-                    'data-allowclear' => 'true',
+                    'data-allowclear' => 'false',
+                    'data-searchbox' => -1,
                     'required' => true
                 ),
             )
@@ -74,102 +77,122 @@ class Register extends Form
                  )
         );
 
-        $fieldset->add(
-            array(
-                     'type' => 'text',
-                     'name' => 'organizationName',
-                     'options' => array(
-                         'label' => /*@translate*/ 'Organizationname',
-                     ),
-                     'attributes' => [
-                         'required' => true
-                     ],
-                 )
-        );
+        if (User::ROLE_RECRUITER === $role) {
+            $fieldset->add(
+                array(
+                    'type'       => 'text',
+                    'name'       => 'organizationName',
+                    'options'    => array(
+                        'label' => /*@translate*/
+                            'Companyname',
+                    ),
+                    'attributes' => [
+                        'required' => true
+                    ],
+                )
+            );
+
+            $fieldset->add(
+                array(
+                    'type'       => 'text',
+                    'name'       => 'postalCode',
+                    'options'    => array(
+                        'label' => /*@translate*/
+                            'Postalcode',
+                    ),
+                    'attributes' => [
+                        'required' => true
+                    ],
+                )
+            );
+
+            $fieldset->add(
+                array(
+                    'type'       => 'text',
+                    'name'       => 'city',
+                    'options'    => array(
+                        'label' => /*@translate*/
+                            'City',
+                    ),
+                    'attributes' => [
+                        'required' => true
+                    ],
+                )
+            );
+
+            $fieldset->add(
+                array(
+                    'type'       => 'text',
+                    'name'       => 'street',
+                    'options'    => array(
+                        'label' => /*@translate*/
+                            'Street',
+                    ),
+                    'attributes' => [
+                        'required' => true
+                    ],
+                )
+            );
+
+            $fieldset->add(
+                array(
+                    'type'       => 'text',
+                    'name'       => 'houseNumber',
+                    'options'    => array(
+                        'label' => /*@translate*/
+                            'house number',
+                    ),
+                    'attributes' => [
+                        'required' => true
+                    ],
+                )
+            );
+
+            $fieldset->add(
+                array(
+                    'type'       => 'text',
+                    'name'       => 'phone',
+                    'options'    => array(
+                        'label' => /*@translate*/
+                            'Phone',
+                    ),
+                    'attributes' => [
+                        'required' => true
+                    ],
+                )
+            );
+        }
 
         $fieldset->add(
             array(
-                     'type' => 'text',
-                     'name' => 'postalCode',
-                     'options' => array(
-                         'label' => /*@translate*/ 'Postalcode',
-                     ),
-                     'attributes' => [
-                         'required' => true
-                     ],
-                 )
-        );
-
-        $fieldset->add(
-            array(
-                     'type' => 'text',
-                     'name' => 'city',
-                     'options' => array(
-                         'label' => /*@translate*/ 'City',
-                     ),
-                     'attributes' => [
-                         'required' => true
-                     ],
-                 )
-        );
-
-        $fieldset->add(
-            array(
-                     'type' => 'text',
-                     'name' => 'street',
-                     'options' => array(
-                         'label' => /*@translate*/ 'Street',
-                     ),
-                     'attributes' => [
-                         'required' => true
-                     ],
-                 )
-        );
-
-        $fieldset->add(
-            array(
-                     'type' => 'text',
-                     'name' => 'houseNumber',
-                     'options' => array(
-                         'label' => /*@translate*/ 'house number',
-                     ),
-                     'attributes' => [
-                         'required' => true
-                     ],
-                 )
-        );
-
-        $fieldset->add(
-            array(
-                     'type' => 'text',
-                     'name' => 'phone',
-                     'options' => array(
-                         'label' => /*@translate*/ 'Phone',
-                     ),
-                     'attributes' => [
-                         'required' => true
-                     ],
-                 )
+                'name'       => 'role',
+                'type'       => 'hidden',
+                'attributes' => array(
+                    'value' => $role,
+                ),
+            )
         );
 
         $this->add($fieldset);
 
-        if (($captchaOptions = $this->getOption('captcha')) && !empty($captchaOptions['use'])) {
-            if ($captchaOptions['use'] === 'image' && !empty($captchaOptions['image'])) {
-                $captcha = new Image($captchaOptions['image']);
-            } elseif ($captchaOptions['use'] === 'reCaptcha' && !empty($captchaOptions['reCaptcha'])) {
-                $captcha = new ReCaptcha($captchaOptions['reCaptcha']);
+        $mode = $options->getMode();
+        if (in_array($mode, [CaptchaOptions::RE_CAPTCHA, CaptchaOptions::IMAGE])) {
+            if ($mode == CaptchaOptions::IMAGE) {
+                $captcha = new Image($options->getImage());
+            } elseif ($mode == CaptchaOptions::RE_CAPTCHA) {
+                $captcha = new ReCaptcha($options->getReCaptcha());
             }
 
             if (!empty($captcha)) {
                 $this->add(
                     array(
-                    'name' => 'captcha',
-                    'options' => array(
-                        'label' => /*@translate*/ 'Are you human?',
-                        'captcha' => $captcha,
-                    ),
-                    'type' => 'Zend\Form\Element\Captcha',
+                        'name'    => 'captcha',
+                        'options' => array(
+                            'label'   => /*@translate*/
+                                'Are you human?',
+                            'captcha' => $captcha,
+                        ),
+                        'type'    => 'Zend\Form\Element\Captcha',
                     )
                 );
             }
