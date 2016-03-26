@@ -12,7 +12,7 @@
     "keywords": [
         "yawik"
     ],
-    "minimum-stability": "alpha",
+    "minimum-stability": "dev",
     "repositories": [
         {
             "type": "vcs",
