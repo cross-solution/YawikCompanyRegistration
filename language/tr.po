@@ -7,10 +7,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: YAWIK\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-28 18:19+0200\n"
-"PO-Revision-Date: 2015-05-28 16:20+0000\n"
+"POT-Creation-Date: 2015-06-15 10:22+0200\n"
+"PO-Revision-Date: 2016-02-20 17:57+0000\n"
 "Last-Translator: Carsten Bleek <cbleek@yawik.org>\n"
-"Language-Team: Turkish (http://www.transifex.com/projects/p/yawik/language/tr/)\n"
+"Language-Team: Turkish (http://www.transifex.com/yawik/yawik/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,7 +20,7 @@ msgstr ""
 #: view/yawik-company-registration/registration/index.phtml:3
 #: language/_annotated_strings.php:30
 msgid "Register"
-msgstr ""
+msgstr "Kayıt"
 
 #: view/yawik-company-registration/registration/index.phtml:13
 msgid "I'm not yet a customer"
@@ -33,34 +33,34 @@ msgstr ""
 #: view/yawik-company-registration/registration/index.phtml:35
 #: view/yawik-company-registration/registration/index.phtml:36
 msgid "I forgot my password"
-msgstr ""
+msgstr "Şifremi Unuttum"
 
 #: view/yawik-company-registration/registration/complete.phtml:2
 msgid "The registration has been successful"
-msgstr ""
+msgstr "Kayıt başarılı olmuştur"
 
 #: view/yawik-company-registration/registration/complete.phtml:4
 #: language/_annotated_strings.php:33
 msgid ""
 "An Email with an activation link has been sent, please try to check your "
 "email box"
-msgstr ""
+msgstr "aktivasyon linki ile e-posta gönderildi, e-posta kutusunu kontrol etmek için deneyin"
 
 #: language/_annotated_strings.php:3
 msgid "Name"
-msgstr ""
+msgstr "isim"
 
 #: language/_annotated_strings.php:6
 msgid "Email"
-msgstr ""
+msgstr "E-posta"
 
 #: language/_annotated_strings.php:9
 msgid "Organizationname"
-msgstr ""
+msgstr "Kuruluş Adı"
 
 #: language/_annotated_strings.php:12
 msgid "Postalcode"
-msgstr ""
+msgstr "Posta kodu"
 
 #: language/_annotated_strings.php:15
 msgid "City"
@@ -72,7 +72,7 @@ msgstr "Sokak"
 
 #: language/_annotated_strings.php:21
 msgid "house number"
-msgstr ""
+msgstr "ev numarası"
 
 #: language/_annotated_strings.php:24
 msgid "Phone"
@@ -80,7 +80,7 @@ msgstr "Telefon"
 
 #: language/_annotated_strings.php:27
 msgid "Are you human?"
-msgstr ""
+msgstr "İnsan mısın?"
 
 #: language/_annotated_strings.php:36 language/_annotated_strings.php:39
 msgid "User can not be created"
@@ -92,4 +92,4 @@ msgstr ""
 
 #: language/_annotated_strings.php:45 language/_annotated_strings.php:48
 msgid "Please fill form correctly"
-msgstr ""
+msgstr "Doğru formu doldurunuz"
