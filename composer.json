@@ -1,9 +1,7 @@
 {
+    "type": "yawik-module",
     "name": "cross-solution/yawik-company-registration",
     "description": "This module enables registration of a company.",
-    "require": {
-        "cross-solution/yawik": "^0.21.1"
-    },
     "license": "MIT",
     "authors": [
         {
@@ -11,5 +9,18 @@
             "email": "bleek@cross-solution.de"
         }
     ],
-    "minimum-stability": "alpha"
+    "keywords": [
+        "yawik"
+    ],
+    "minimum-stability": "alpha",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/cross-solution/installers"
+        }
+    ],
+    "require": {
+        "cross-solution/yawik": "*",
+        "cross-solution/installers": "dev-bugfix"
+    }
 }

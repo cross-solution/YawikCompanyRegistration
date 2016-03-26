@@ -3,7 +3,7 @@
  * YAWIK
  *
  * @filesource
- * @copyright (c) 2013-2015 Cross Solution (http://cross-solution.de)
+ * @copyright (c) 2013 - 2016 Cross Solution (http://cross-solution.de)
  * @license   MIT
  * @author    weitz@cross-solution.de
  */
@@ -19,9 +19,8 @@ use YawikCompanyRegistration\Options\RegisterControllerOptions;
  * Class RegisterFactory
  * @package Registration\Factory\Controller
  */
-class RegisterFactory implements FactoryInterface
+class RegisterControllerFactory implements FactoryInterface
 {
-
     /**
      * Create service
      *
@@ -33,7 +32,6 @@ class RegisterFactory implements FactoryInterface
     {
 
         $options = new RegisterControllerOptions(array());
-
 
         return new RegistrationController($options);
     }

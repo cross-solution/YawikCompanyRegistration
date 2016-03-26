@@ -3,13 +3,14 @@
  * YAWIK
  *
  * @filesource
- * @copyright (c) 2013-2015 Cross Solution (http://cross-solution.de)
+ * @copyright (c) 2013 - 2016 Cross Solution (http://cross-solution.de)
  * @license   MIT
  * @author    weitz@cross-solution.de
  */
 
 namespace YawikCompanyRegistration\Controller;
 
+use Auth\Entity\User;
 use Core\Controller\AbstractCoreController;
 use Core\Entity\PermissionsInterface;
 use Zend\Stdlib\AbstractOptions;
@@ -45,17 +46,16 @@ class RegistrationController extends AbstractCoreController
      */
     public function indexAction()
     {
+        /* @var $request \Zend\Http\Request */
         $request                  = $this->getRequest();
         $services                 = $this->getServiceLocator();
         $repositories             = $services->get('repositories');
         $repositoriesOrganization = $repositories->get('Organizations/Organization');
-        $userRepository           = $repositories->get('Auth/User');
         $registerService          = $services->get('Auth\Service\Register');
         $logger                   = $services->get('Core/Log');
         $formManager              = $services->get('FormElementManager');
-        $config                   = $services->get('Config');
-        $captchaConfig            = isset($config['captcha']) ? $config['captcha'] : array();
-        $form                     = $formManager->get('Registration\Form\Register', array('captcha' => $captchaConfig));
+
+        $form                     = $formManager->get('Auth\Form\Register',['role'=>$this->params('role','recruiter')]);
         $formLogin                = $formManager->get('Auth\Form\Login');
         $formLogin->setAttribute("action", "/de/login?ref=".urlencode("/de/jobs/edit")."&req=1");
         $formLogin->setAttribute("class", "form-horizontal");
@@ -76,25 +76,29 @@ class RegistrationController extends AbstractCoreController
 
                     if (isset($user) && $user instanceof UserInterface) {
 
-                        $user->info->houseNumber = $register->get('houseNumber')->getValue();
-                        $user->info->phone = $register->get('phone')->getValue();
-                        $user->info->postalCode = $register->get('postalCode')->getValue();
-                        $user->info->city = $register->get('city')->getValue();
-                        $user->info->street = $register->get('street')->getValue();
-                        $user->info->gender = $register->get('gender')->getValue();
+                        if(User::ROLE_RECRUITER == $register->get('role')->getValue()) {
+                            $user->info->houseNumber = $register->get('houseNumber')->getValue();
+                            $user->info->phone       = $register->get('phone')->getValue();
+                            $user->info->postalCode  = $register->get('postalCode')->getValue();
+                            $user->info->city        = $register->get('city')->getValue();
+                            $user->info->street      = $register->get('street')->getValue();
+                            $user->info->gender      = $register->get('gender')->getValue();
+                        }
                         $repositories->store($user);
 
-                        $organizationName = $register->get('organizationName')->getValue();
-                        $organization = $repositoriesOrganization->createWithName($organizationName);
-                        $organization->contact->postalcode = $register->get('postalCode')->getValue();
-                        $organization->contact->city = $register->get('city')->getValue();
-                        $organization->contact->street = $register->get('street')->getValue();
-                        $organization->contact->houseNumber = $register->get('houseNumber')->getValue();
-                        $organization->user = $user;
+                        if(User::ROLE_RECRUITER == $register->get('role')->getValue()) {
+                            $organizationName                   = $register->get('organizationName')->getValue();
+                            $organization = $repositoriesOrganization->createWithName($organizationName);
+                            $organization->contact->postalcode  = $register->get('postalCode')->getValue();
+                            $organization->contact->city        = $register->get('city')->getValue();
+                            $organization->contact->street      = $register->get('street')->getValue();
+                            $organization->contact->houseNumber = $register->get('houseNumber')->getValue();
+                            $organization->user                 = $user;
 
-                        $permissions = $organization->getPermissions();
-                        $permissions->grant($user, PermissionsInterface::PERMISSION_ALL);
-                        $repositories->persist($organization);
+                            $permissions = $organization->getPermissions();
+                            $permissions->grant($user, PermissionsInterface::PERMISSION_ALL);
+                            $repositories->persist($organization);
+                        }
 
                         $viewModel->setTemplate('registration\completed');
 
