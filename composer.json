@@ -21,6 +21,6 @@
     ],
     "require": {
         "cross-solution/yawik": "*",
-        "cross-solution/installers": "dev-bugfix"
+        "cross-solution/installers": "*"
     }
 }
