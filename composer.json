@@ -15,9 +15,17 @@
     "minimum-stability": "dev",
     "repositories": [
         {
-            "type": "vcs",
-            "url": "https://github.com/cross-solution/installers"
-        }
+            "type": "package",
+            "package": {
+                "name": "cross-solution/installers",
+                "type": "package",
+                "source": {
+                    "url": "https://github.com/cross-solution/installers.git",
+                    "type": "git",
+                    "reference": "master"
+                }
+            }
+        }   
     ],
     "require": {
         "cross-solution/yawik": "*",
