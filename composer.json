@@ -20,6 +20,6 @@
         }   
     ],
     "require": {
-        "cross-solution/installers": "dev-master"
+        "cross-solution/installers": "*"
     }
 }
