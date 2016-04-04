@@ -8,7 +8,7 @@ entities are created.
 Requirements
 ------------
 
-a running YAWIK System
+a running YAWIK http://yawik.org System
 
 Installation
 ------------
