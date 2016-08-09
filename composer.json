@@ -13,13 +13,7 @@
         "yawik"
     ],
     "minimum-stability": "dev",
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/cross-solution/installers"
-        }   
-    ],
     "require": {
-        "cross-solution/installers": "dev-master"
+        "composer/installers": "dev-master"
     }
 }
