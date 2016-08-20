@@ -37,10 +37,10 @@ before_script:
   - ./composer.phar create-project cross-solution/yawik
   - cd yawik/module
   - ln -s ../../ YawikCompanyRegistration
+  - ls -l
 
 script:
-  - ln -s ../test/build/logs build
-  - cd test
+  - cd ../test
   - phpunit --configuration $TRAVIS_BUILD_DIR/test/phpunit.xml.dist
 
 after_script:
