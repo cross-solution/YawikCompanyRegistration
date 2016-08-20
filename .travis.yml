@@ -37,16 +37,9 @@ before_script:
   - ./composer.phar create-project cross-solution/yawik
   - cd yawik/module
   - ln -s ../../ YawikCompanyRegistration
-  - ls -l
+  - ls -l YawikCompanyRegistration
 
 script:
   - cd ../test
-  - phpunit --configuration $TRAVIS_BUILD_DIR/test/phpunit.xml.dist
-
-after_script:
-  - cd $TRAVIS_BUILD_DIR
-  - ls -l test/build/logs
-  - php vendor/bin/coveralls -vvv
-  - wget https://scrutinizer-ci.com/ocular.phar
-  - php ocular.phar code-coverage:upload --format=php-clover test/build/logs/clover.serialized
+  - phpunit --configuration $TRAVIS_BUILD_DIR/yawik/test/phpunit.xml.dist
 
