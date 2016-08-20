@@ -45,35 +45,17 @@ then
   DEVENV=1
 fi;
 
-#
-# Download Phing
-#
-if [ ! -f $PHING ]
-then
-	echo "Download Phing"
-	curl -sS https://www.phing.info/get/phing-latest.phar > $PHING
-	chmod +x $PHING
-fi;
-
 # 
 # Download Composer
 #
 
 echo "Installing úsing: $PROPERTIES"
 
-if [ $DEVENV ]
+
+if [ ! -f $COMPOSER ]
 then
-
-	if [ ! -f $COMPOSER ]
-	then
-		echo "Download Composer"
-		curl -sS https://getcomposer.org/installer | php
-	fi;
-
-	./$PHING $VERBOSE -Dbuild.properties $PROPERTIES
-	
-else
-	./$PHING $VERBOSE -Dbuild.properties $PROPERTIES generate-autoload-config
+	echo "Download Composer"
+	curl -sS https://getcomposer.org/installer | php
 fi;
 
 

@@ -35,8 +35,8 @@ before_script:
   - ./install.sh -b .travis/build.properties.travis
   - ./composer.phar self-update
   - ./composer.phar create-project cross-solution/yawik
-  - cd yawik
-  - ../composer.phar require cross-solution/yawik-company-registration
+  - cd yawik/module
+  - ln -s ../../ YawikCompanyRegistration
 
 script:
   - ln -s ../test/build/logs build
