@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: YAWIK\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-15 10:22+0200\n"
-"PO-Revision-Date: 2015-06-02 11:50+0000\n"
+"POT-Creation-Date: 2016-10-10 16:24+0200\n"
+"PO-Revision-Date: 2016-10-10 14:46+0000\n"
 "Last-Translator: blu-IT\n"
 "Language-Team: Italian (http://www.transifex.com/yawik/yawik/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -19,20 +19,20 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: view/yawik-company-registration/registration/index.phtml:3
-#: language/_annotated_strings.php:30
+#: language/_annotated_strings.php:31
 msgid "Register"
 msgstr "Registrati"
 
-#: view/yawik-company-registration/registration/index.phtml:13
+#: view/yawik-company-registration/registration/index.phtml:10
 msgid "I'm not yet a customer"
 msgstr "Non sono ancora un cliente"
 
-#: view/yawik-company-registration/registration/index.phtml:23
+#: view/yawik-company-registration/registration/index.phtml:20
 msgid "I am already a customer"
 msgstr "Sono già cliente"
 
-#: view/yawik-company-registration/registration/index.phtml:35
-#: view/yawik-company-registration/registration/index.phtml:36
+#: view/yawik-company-registration/registration/index.phtml:26
+#: view/yawik-company-registration/registration/index.phtml:27
 msgid "I forgot my password"
 msgstr "Ho dimenticato la mia password"
 
@@ -41,56 +41,44 @@ msgid "The registration has been successful"
 msgstr "La registrazione ha avuto successo"
 
 #: view/yawik-company-registration/registration/complete.phtml:4
-#: language/_annotated_strings.php:33
+#: language/_annotated_strings.php:34
 msgid ""
 "An Email with an activation link has been sent, please try to check your "
 "email box"
 msgstr "Una e-mail con un link di attivazione è stata inviata. Si prega di controllare la casella di posta elettronica."
 
 #: language/_annotated_strings.php:3
+msgid "Salutation"
+msgstr "Saluto"
+
+#: language/_annotated_strings.php:6 language/_annotated_strings.php:15
+msgid "please select"
+msgstr "Per favore scegli"
+
+#: language/_annotated_strings.php:9
+msgid "Mr."
+msgstr "Mr."
+
+#: language/_annotated_strings.php:12
+msgid "Mrs."
+msgstr "Mrs."
+
+#: language/_annotated_strings.php:18
 msgid "Name"
 msgstr "Nome"
 
-#: language/_annotated_strings.php:6
+#: language/_annotated_strings.php:21
 msgid "Email"
 msgstr "Email"
 
-#: language/_annotated_strings.php:9
-msgid "Organizationname"
-msgstr "Nome organizzazione"
-
-#: language/_annotated_strings.php:12
-msgid "Postalcode"
-msgstr "C.A.P"
-
-#: language/_annotated_strings.php:15
-msgid "City"
-msgstr "Città"
-
-#: language/_annotated_strings.php:18
-msgid "Street"
-msgstr "Strada"
-
-#: language/_annotated_strings.php:21
-msgid "house number"
-msgstr "numero civico"
-
-#: language/_annotated_strings.php:24
-msgid "Phone"
-msgstr "Telefono"
-
-#: language/_annotated_strings.php:27
-msgid "Are you human?"
-msgstr "Sei umano?"
-
-#: language/_annotated_strings.php:36 language/_annotated_strings.php:39
+#: language/_annotated_strings.php:37 language/_annotated_strings.php:40
 msgid "User can not be created"
 msgstr "L'utente non può essere creato"
 
-#: language/_annotated_strings.php:42
+#: language/_annotated_strings.php:43
 msgid "user with this e-mail address already exists"
 msgstr "utente con questo indirizzo e-mail esiste già"
 
-#: language/_annotated_strings.php:45 language/_annotated_strings.php:48
+#: language/_annotated_strings.php:46 language/_annotated_strings.php:49
 msgid "Please fill form correctly"
 msgstr "Si prega di compilare il modula correttamente"
