@@ -2,3 +2,4 @@
 view/.*
 config/build.properties
 /vendor/
+components

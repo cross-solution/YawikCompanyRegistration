@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Carsten Bleek <cbleek@yawik.org>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: YAWIK\n"
@@ -10,74 +11,74 @@ msgstr ""
 "POT-Creation-Date: 2016-10-10 16:24+0200\n"
 "PO-Revision-Date: 2016-10-10 14:46+0000\n"
 "Last-Translator: Carsten Bleek <cbleek@yawik.org>\n"
-"Language-Team: Chinese (http://www.transifex.com/yawik/yawik/language/zh/)\n"
+"Language-Team: Dutch (Belgium) (http://www.transifex.com/yawik/yawik/language/nl_BE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: nl_BE\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: view/yawik-company-registration/registration/index.phtml:3
 #: language/_annotated_strings.php:31
 msgid "Register"
-msgstr "注册"
+msgstr "Registreer"
 
 #: view/yawik-company-registration/registration/index.phtml:10
 msgid "I'm not yet a customer"
-msgstr ""
+msgstr "Ik ben nog geen klant"
 
 #: view/yawik-company-registration/registration/index.phtml:20
 msgid "I am already a customer"
-msgstr ""
+msgstr "Ik ben al klant"
 
 #: view/yawik-company-registration/registration/index.phtml:26
 #: view/yawik-company-registration/registration/index.phtml:27
 msgid "I forgot my password"
-msgstr "我忘记了密码"
+msgstr "Ik ben mijn wachtwoord vergeten"
 
 #: view/yawik-company-registration/registration/complete.phtml:2
 msgid "The registration has been successful"
-msgstr ""
+msgstr "De registratie is succesvol geweest"
 
 #: view/yawik-company-registration/registration/complete.phtml:4
 #: language/_annotated_strings.php:34
 msgid ""
 "An Email with an activation link has been sent, please try to check your "
 "email box"
-msgstr "一封电子邮件，激活链接已发送，请尝试检查您的电子邮箱"
+msgstr "Een e-mail met een activatie link is verzonden, dan kunt u proberen om uw e-mail box controleren"
 
 #: language/_annotated_strings.php:3
 msgid "Salutation"
-msgstr "招呼"
+msgstr "Begroeting"
 
 #: language/_annotated_strings.php:6 language/_annotated_strings.php:15
 msgid "please select"
-msgstr "请选择"
+msgstr "Selecteer alstublieft"
 
 #: language/_annotated_strings.php:9
 msgid "Mr."
-msgstr "先生."
+msgstr "Mr."
 
 #: language/_annotated_strings.php:12
 msgid "Mrs."
-msgstr "太太."
+msgstr "Mevr."
 
 #: language/_annotated_strings.php:18
 msgid "Name"
-msgstr "名字"
+msgstr "Naam"
 
 #: language/_annotated_strings.php:21
 msgid "Email"
-msgstr "电子邮件"
+msgstr "Email"
 
 #: language/_annotated_strings.php:37 language/_annotated_strings.php:40
 msgid "User can not be created"
-msgstr ""
+msgstr "De gebruiker kan niet worden gemaakt"
 
 #: language/_annotated_strings.php:43
 msgid "user with this e-mail address already exists"
-msgstr ""
+msgstr "gebruiker met dit e-mailadres bestaat reeds"
 
 #: language/_annotated_strings.php:46 language/_annotated_strings.php:49
 msgid "Please fill form correctly"
-msgstr "请正确填写表格"
+msgstr "Gelieve correct in te vullen formulier"

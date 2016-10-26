@@ -13,6 +13,6 @@
         "yawik"
     ],
     "require": {
-        "composer/installers": "dev-master"
+        "composer/installers": "*"
     }
 }
