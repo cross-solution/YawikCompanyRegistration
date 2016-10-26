@@ -17,6 +17,10 @@ drop the YawikCompanyRegistration module into your <YAWIK>/module/ directory.
 Make sure the module is loaded by adding "YawikCompanyRegistration" to the mudules[] 
 array in https://github.com/cross-solution/YAWIK/blob/develop/config/config.php
 
+OR using composer
+
+ composer require cross-solution/yawik-company-registration
+
 
 License
 -------
