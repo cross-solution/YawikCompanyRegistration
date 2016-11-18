@@ -5,6 +5,10 @@ This YAWIK module offers a registration formular with all the fields needed to
 create an organization and an user entity. After submitting the formular both
 entities are created.
 
+Build status: 
+
+[![Build Status](https://api.travis-ci.org/cross-solution/YawikCompanyRegistration.svg)](https://travis-ci.org/cross-solution/YawikCompanyRegistration)
+
 Requirements
 ------------
 
