@@ -5,6 +5,11 @@
         <log type="coverage-clover" target="build/logs/clover.xml"/>
         <log type="coverage-php" target="build/logs/clover.serialized"/>
     </logging>
+    <filter>
+        <whitelist>
+            <directory suffix=".php">../src</directory>
+        </whitelist>
+    </filter>
     <testsuites>
         <testsuite name="CompanyRegistrationTest">
             <directory>./CompanyRegistrationTest</directory>
