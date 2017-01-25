@@ -9,6 +9,7 @@
 namespace YawikCompanyRegistration\Factory\Form;
 
 use YawikCompanyRegistration\Form\Register;
+use YawikCompanyRegistration\Options\RegistrationFormOptions;
 use Auth\Form\RegisterInputFilter;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
@@ -47,7 +48,10 @@ class RegisterFactory implements FactoryInterface
         /* @var $config CaptchaOptions */
         $config = $serviceLocator->getServiceLocator()->get('Auth/CaptchaOptions');
 
-        $form = new Register(null, $config, $this->role);
+        /* @var $configForm RegistrationFormOptions */
+        $formOptions = $serviceLocator->getServiceLocator()->get('YawikCompanyRegistration/RegistrationFormOptions');
+
+        $form = new Register(null, $config, $formOptions, $this->role);
 
         $form->setAttribute('id', 'registration');
 

@@ -32,13 +32,18 @@ return array(
             'Auth\Form\Register' => 'YawikCompanyRegistration\Factory\Form\RegisterFactory',
         ]
     ),
-    'translator' => array(
-        'translation_file_patterns' => array(
-            array(
+    'translator' => [
+        'translation_file_patterns' => [
+            [
                 'type' => 'gettext',
                 'base_dir' => __DIR__ . '/../language',
                 'pattern' => '%s.mo',
-            ),
-        ),
-    ),
+            ],
+        ],
+    ],
+    'options' => [
+        'YawikCompanyRegistration/RegistrationFormOptions' => [
+            'class' => '\YawikCompanyRegistration\Options\RegistrationFormOptions'
+        ]
+    ]
 );

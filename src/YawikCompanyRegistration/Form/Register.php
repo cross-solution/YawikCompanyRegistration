@@ -10,6 +10,7 @@
 
 namespace YawikCompanyRegistration\Form;
 
+use YawikCompanyRegistration\Options\RegistrationFormOptions;
 use Core\Form\ButtonsFieldset;
 use Core\Form\Form;
 use Zend\Captcha\Image;
@@ -20,7 +21,7 @@ use Auth\Entity\User;
 
 class Register extends Form
 {
-    public function __construct($name = 'register-form', CaptchaOptions $options, $role = 'recruiter')
+    public function __construct($name = 'register-form', CaptchaOptions $options, RegistrationFormOptions $formOptions, $role = User::ROLE_RECRUITER)
     {
         parent::__construct($name, []);
 
@@ -30,137 +31,150 @@ class Register extends Form
         $fieldset = new Fieldset('register');
         $fieldset->setOptions(array('renderFieldset' => true));
 
-        $fieldset->add(
-            array(
-                'name' => 'gender',
-                'type' => 'Zend\Form\Element\Select',
-                'options' => array(
-                    'label' => /*@translate */ 'Salutation',
-                    'value_options' => array(
-                        '' => '', // => /*@translate */ 'please select',
-                        'male' => /*@translate */ 'Mr.',
-                        'female' => /*@translate */ 'Mrs.',
-                    )
-                ),
-                'attributes' => array(
-                    'data-placeholder' => /*@translate*/ 'please select',
-                    'data-allowclear' => 'false',
-                    'data-searchbox' => -1,
-                    'required' => true
-                ),
-            )
-        );
+        if ($formOptions->isEnabled(RegistrationFormOptions::FIELD_GENDER)) {
+            $fieldset->add(
+                [
+                    'name'       => RegistrationFormOptions::FIELD_GENDER,
+                    'type'       => 'Zend\Form\Element\Select',
+                    'options'    => [
+                        'label'         => /*@translate */ 'Salutation',
+                        'value_options' => [
+                            ''       => '', // => /*@translate */ 'please select',
+                            'male'   => /*@translate */ 'Mr.',
+                            'female' => /*@translate */ 'Mrs.',
+                        ]
+                    ],
+                    'attributes' => [
+                        'data-placeholder' => /*@translate*/ 'please select',
+                        'data-allowclear'  => 'false',
+                        'data-searchbox'   => -1,
+                        'required'         => $formOptions->isRequired(RegistrationFormOptions::FIELD_GENDER)
+                    ],
+                ]
+            );
+        }
 
-        $fieldset->add(
-            array(
-                     'type' => 'text',
-                     'name' => 'name',
-                     'options' => array(
-                         'label' => /*@translate*/ 'Name',
-                     ),
-                     'attributes' => [
-                         'required' => true
-                     ],
-                 )
-        );
 
+        if ($formOptions->isEnabled(RegistrationFormOptions::FIELD_NAME)){
+            $fieldset->add(
+                array(
+                    'type'       => 'text',
+                    'name'       => RegistrationFormOptions::FIELD_NAME,
+                    'options'    => array(
+                        'label' => /*@translate*/ 'Name',
+                    ),
+                    'attributes' => [
+                        'required' => $formOptions->isRequired(RegistrationFormOptions::FIELD_NAME)
+                    ],
+                )
+            );
+        }
+
+        if ($formOptions->isEnabled(RegistrationFormOptions::FIELD_EMAIL))
         $fieldset->add(
             array(
                      'type' => 'email',
-                     'name' => 'email',
+                     'name' => RegistrationFormOptions::FIELD_EMAIL,
                      'options' => array(
                          'label' => /*@translate*/ 'Email',
                      ),
                      'attributes' => [
-                         'required' => true
+                         'required' => $formOptions->isRequired(RegistrationFormOptions::FIELD_EMAIL)
                      ],                     
                  )
         );
 
         if (User::ROLE_RECRUITER === $role) {
-            $fieldset->add(
-                array(
-                    'type'       => 'text',
-                    'name'       => 'organizationName',
-                    'options'    => array(
-                        'label' => /*@translate*/
-                            'Companyname',
-                    ),
-                    'attributes' => [
-                        'required' => true
-                    ],
-                )
-            );
+            if ($formOptions->isEnabled(RegistrationFormOptions::FIELD_ORGANIZATION_NAME)){
+                $fieldset->add(
+                    array(
+                        'type'       => 'text',
+                        'name'       => RegistrationFormOptions::FIELD_ORGANIZATION_NAME,
+                        'options'    => array(
+                            'label' => /*@translate*/ 'Companyname',
+                        ),
+                        'attributes' => [
+                            'required' => $formOptions->isRequired(RegistrationFormOptions::FIELD_ORGANIZATION_NAME)
+                        ],
+                    )
+                );
+            }
 
-            $fieldset->add(
-                array(
-                    'type'       => 'text',
-                    'name'       => 'postalCode',
-                    'options'    => array(
-                        'label' => /*@translate*/
-                            'Postalcode',
-                    ),
-                    'attributes' => [
-                        'required' => true
-                    ],
-                )
-            );
+            if ($formOptions->isEnabled(RegistrationFormOptions::FIELD_POSTAL_CODE)){
+                $fieldset->add(
+                    [
+                        'type'       => 'text',
+                        'name'       => RegistrationFormOptions::FIELD_POSTAL_CODE,
+                        'options'    => array(
+                            'label' => /*@translate*/ 'Postalcode',
+                        ),
+                        'attributes' => [
+                            'required' => $formOptions->isRequired(RegistrationFormOptions::FIELD_POSTAL_CODE)
+                        ],
+                    ]
+                );
+            }
 
-            $fieldset->add(
-                array(
-                    'type'       => 'text',
-                    'name'       => 'city',
-                    'options'    => array(
-                        'label' => /*@translate*/
-                            'City',
-                    ),
-                    'attributes' => [
-                        'required' => true
-                    ],
-                )
-            );
+            if ($formOptions->isEnabled(RegistrationFormOptions::FIELD_CITY)) {
 
-            $fieldset->add(
-                array(
-                    'type'       => 'text',
-                    'name'       => 'street',
-                    'options'    => array(
-                        'label' => /*@translate*/
-                            'Street',
-                    ),
-                    'attributes' => [
-                        'required' => true
-                    ],
-                )
-            );
+                $fieldset->add(
+                    array(
+                        'type'       => 'text',
+                        'name'       => 'city',
+                        'options'    => [
+                            'label' => /*@translate*/ 'City',
+                        ],
+                        'attributes' => [
+                            'required' => $formOptions->isRequired(RegistrationFormOptions::FIELD_CITY)
+                        ],
+                    )
+                );
+            }
 
-            $fieldset->add(
-                array(
-                    'type'       => 'text',
-                    'name'       => 'houseNumber',
-                    'options'    => array(
-                        'label' => /*@translate*/
-                            'house number',
-                    ),
-                    'attributes' => [
-                        'required' => true
-                    ],
-                )
-            );
+            if ($formOptions->isEnabled(RegistrationFormOptions::FIELD_STREET)) {
+                $fieldset->add(
+                    array(
+                        'type'       => 'text',
+                        'name'       => RegistrationFormOptions::FIELD_STREET,
+                        'options'    => [
+                            'label' => /*@translate*/ 'Street',
+                        ],
+                        'attributes' => [
+                            'required' =>$formOptions->isRequired(RegistrationFormOptions::FIELD_STREET)
+                        ],
+                    )
+                );
+            }
 
-            $fieldset->add(
-                array(
-                    'type'       => 'text',
-                    'name'       => 'phone',
-                    'options'    => array(
-                        'label' => /*@translate*/
-                            'Phone',
-                    ),
-                    'attributes' => [
-                        'required' => true
-                    ],
-                )
-            );
+            if ($formOptions->isEnabled(RegistrationFormOptions::FIELD_HOUSE_NUMBER)) {
+                $fieldset->add(
+                    array(
+                        'type'       => 'text',
+                        'name'       => RegistrationFormOptions::FIELD_HOUSE_NUMBER,
+                        'options'    => [
+                            'label' => /*@translate*/ 'house number',
+                        ],
+                        'attributes' => [
+                            'required' => $formOptions->isRequired(RegistrationFormOptions::FIELD_HOUSE_NUMBER)
+                        ],
+                    )
+                );
+            }
+
+            if ($formOptions->isEnabled(RegistrationFormOptions::FIELD_PHONE)) {
+                $fieldset->add(
+                    array(
+                        'type'       => 'text',
+                        'name'       => RegistrationFormOptions::FIELD_PHONE,
+                        'options'    => [
+                            'label' => /*@translate*/ 'Phone',
+                        ],
+                        'attributes' => [
+                            'required' => $formOptions->isRequired(RegistrationFormOptions::FIELD_PHONE)
+                        ],
+                    )
+                );
+            }
         }
 
         $fieldset->add(
@@ -188,8 +202,7 @@ class Register extends Form
                     array(
                         'name'    => 'captcha',
                         'options' => array(
-                            'label'   => /*@translate*/
-                                'Are you human?',
+                            'label'   => /*@translate*/ 'Are you human?',
                             'captcha' => $captcha,
                         ),
                         'type'    => 'Zend\Form\Element\Captcha',
