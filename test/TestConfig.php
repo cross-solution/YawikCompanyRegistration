@@ -5,7 +5,7 @@ return [
         'Auth',
         'Jobs',
         'Organizations',
-        
+        'YawikCompanyRegistration',
     ],
     'module_listener_options' => [
         'module_paths' => [
