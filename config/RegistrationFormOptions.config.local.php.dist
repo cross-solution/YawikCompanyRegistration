@@ -2,11 +2,11 @@
 /**
  * YAWIK
  *
- * Configuration file of the MailService
+ * Configuration file of the registration form
  *
  * Copy this file into your autoload directory (without .dist) and adjust it for your needs
  *
- * @copyright (c) 2013 - 2016 Cross Solution (http://cross-solution.de)
+ * @copyright (c) 2013 - 2017 Cross Solution (http://cross-solution.de)
  * @license   MIT
  */
 
@@ -65,7 +65,7 @@ $fields = [
 
 return [
     'options' => [
-        'Core/RegistrationFormOptions' => [
+        'YawikCompanyRegistration/RegistrationFormOptions' => [
             'options' => [
                 'fields' => $fields,
             ],
