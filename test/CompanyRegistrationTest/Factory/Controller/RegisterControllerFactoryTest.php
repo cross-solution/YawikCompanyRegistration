@@ -9,7 +9,7 @@
 
 namespace CompanyRegistrationTest\Factory\Controller;
 
-use YawikCompanyRegistration\Factory\Controller\RegisterControllerFactory;
+use CompanyRegistration\Factory\Controller\RegisterControllerFactory;
 use Auth\Options\ModuleOptions;
 use Test\Bootstrap;
 use Zend\Mvc\Controller\ControllerManager;
@@ -47,6 +47,6 @@ class RegisterControllerFactoryTest extends \PHPUnit_Framework_TestCase
 
         $result = $this->testedObj->createService($controllerManager);
 
-        $this->assertInstanceOf('YawikCompanyRegistration\Controller\RegistrationController', $result);
+        $this->assertInstanceOf('CompanyRegistration\Controller\RegistrationController', $result);
     }
 }

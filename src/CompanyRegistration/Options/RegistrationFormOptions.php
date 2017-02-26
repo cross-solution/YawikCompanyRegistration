@@ -6,7 +6,7 @@
 * @license    MIT
 * @copyright  2013 - 2016 Cross Solution <http://cross-solution.de>
 */
-namespace YawikCompanyRegistration\Options;
+namespace CompanyRegistration\Options;
 
 use Zend\Stdlib\AbstractOptions;
 

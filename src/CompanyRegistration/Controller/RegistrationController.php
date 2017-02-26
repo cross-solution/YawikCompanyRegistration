@@ -8,7 +8,7 @@
  * @author    weitz@cross-solution.de
  */
 
-namespace YawikCompanyRegistration\Controller;
+namespace CompanyRegistration\Controller;
 
 use Auth\Entity\User;
 use Core\Controller\AbstractCoreController;
@@ -54,7 +54,7 @@ class RegistrationController extends AbstractCoreController
         $registerService          = $services->get('Auth\Service\Register');
         $logger                   = $services->get('Core/Log');
         $formManager              = $services->get('FormElementManager');
-        /* @var \YawikCompanyRegistration\Form\Register $form  */
+        /* @var \CompanyRegistration\Form\Register $form  */
         $form                     = $formManager->get('Auth\Form\Register',['role'=>$this->params( User::ROLE_USER, User::ROLE_RECRUITER )]);
         /* @var \Auth\Form\Login $formLogin  */
         $formLogin                = $formManager->get('Auth\Form\Login');

@@ -8,7 +8,7 @@
  * @author    weitz@cross-solution.de
  */
 
-namespace YawikCompanyRegistration\Options;
+namespace CompanyRegistration\Options;
 
 use Zend\Stdlib\AbstractOptions;
 

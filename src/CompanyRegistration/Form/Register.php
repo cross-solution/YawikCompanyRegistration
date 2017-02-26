@@ -8,9 +8,9 @@
  * @author    weitz@cross-solution.de
  */
 
-namespace YawikCompanyRegistration\Form;
+namespace CompanyRegistration\Form;
 
-use YawikCompanyRegistration\Options\RegistrationFormOptions;
+use CompanyRegistration\Options\RegistrationFormOptions;
 use Core\Form\ButtonsFieldset;
 use Core\Form\Form;
 use Zend\Captcha\Image;

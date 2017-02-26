@@ -10,7 +10,7 @@
 
 namespace CompanyRegistration\Test\Options;
 
-use YawikCompanyRegistration\Options\RegistrationFormOptions as Options;
+use CompanyRegistration\Options\RegistrationFormOptions as Options;
 
 class RegistrationFormOptionsTest extends \PHPUnit_Framework_TestCase
 {
@@ -26,8 +26,8 @@ class RegistrationFormOptionsTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers YawikCompanyRegistration\Options\RegistrationFormOptions::getFields
-     * @covers YawikCompanyRegistration\Options\RegistrationFormOptions::setFields
+     * @covers CompanyRegistration\Options\RegistrationFormOptions::getFields
+     * @covers CompanyRegistration\Options\RegistrationFormOptions::setFields
      */
     public function testSetGetFields()
     {
@@ -37,7 +37,7 @@ class RegistrationFormOptionsTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers YawikCompanyRegistration\Options\RegistrationFormOptions::isEnabled
+     * @covers CompanyRegistration\Options\RegistrationFormOptions::isEnabled
      * @dataProvider dataProviderisEnabled
      */
     public function testIsFieldEnabled($data,$result){
@@ -54,7 +54,7 @@ class RegistrationFormOptionsTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers YawikCompanyRegistration\Options\RegistrationFormOptions::isRequired
+     * @covers CompanyRegistration\Options\RegistrationFormOptions::isRequired
      * @dataProvider dataProviderIsRequired
      */
     public function testIsFieldRequired($data,$result){

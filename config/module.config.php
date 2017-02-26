@@ -13,7 +13,7 @@ return array(
         'invokables' => array(
         ),
         'factories' => array(
-            'Auth\Controller\Register' => 'YawikCompanyRegistration\Factory\Controller\RegisterControllerFactory',
+            'Auth\Controller\Register' => 'CompanyRegistration\Factory\Controller\RegisterControllerFactory',
         )
     ),
 
@@ -29,7 +29,7 @@ return array(
 
     'form_elements' => array(
         'factories' => [
-            'Auth\Form\Register' => 'YawikCompanyRegistration\Factory\Form\RegisterFactory',
+            'Auth\Form\Register' => 'CompanyRegistration\Factory\Form\RegisterFactory',
         ]
     ),
     'translator' => [
@@ -42,8 +42,8 @@ return array(
         ],
     ],
     'options' => [
-        'YawikCompanyRegistration/RegistrationFormOptions' => [
-            'class' => '\YawikCompanyRegistration\Options\RegistrationFormOptions'
+        'CompanyRegistration/RegistrationFormOptions' => [
+            'class' => '\CompanyRegistration\Options\RegistrationFormOptions'
         ]
     ]
 );
