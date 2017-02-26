@@ -32,11 +32,11 @@ before_script:
   - mv ../`basename $TRAVIS_BUILD_DIR` `dirname $TRAVIS_BUILD_DIR`/yawik/module
 
 script:
-  - cd `dirname $TRAVIS_BUILD_DIR`/yawik/module/YawikCompanyRegistration/test
+  - cd `dirname $TRAVIS_BUILD_DIR`/yawik/module/CompanyRegistration/test
   - phpunit
 
 after_script:
-  - cd `dirname $TRAVIS_BUILD_DIR`/yawik/module/YawikCompanyRegistration
+  - cd `dirname $TRAVIS_BUILD_DIR`/yawik/module/CompanyRegistration
   - php `dirname $TRAVIS_BUILD_DIR`/yawik/vendor/bin/coveralls -vvv
   - wget https://scrutinizer-ci.com/ocular.phar
   - php ocular.phar code-coverage:upload --format=php-clover test/build/logs/clover.serialized
