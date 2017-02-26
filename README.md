@@ -7,7 +7,8 @@ entities are created.
 
 Build status: 
 
-[![Build Status](https://api.travis-ci.org/cross-solution/YawikCompanyRegistration.svg)](https://travis-ci.org/cross-solution/YawikCompanyRegistration)
+[![Build Status](https://api.travis-ci.org/yawik/CompanyRegistration.svg)](https://travis-ci.org/yawik/CompanyRegistration)
+[![Coverage Status](https://coveralls.io/repos/github/yawik/CompanyRegistration/badge.svg?branch=develop)](https://coveralls.io/github/yawik/CompanyRegistration?branch=develop)
 
 Requirements
 ------------
@@ -31,4 +32,4 @@ License
 
 MIT 
 
-https://github.com/cross-solution/YawikCompanyRegistration/blob/master/LICENSE
+https://github.com/yawik/CompanyRegistration/blob/master/LICENSE
