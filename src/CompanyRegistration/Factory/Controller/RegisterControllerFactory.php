@@ -8,12 +8,12 @@
  * @author    weitz@cross-solution.de
  */
 
-namespace YawikCompanyRegistration\Factory\Controller;
+namespace CompanyRegistration\Factory\Controller;
 
-use YawikCompanyRegistration\Controller\RegistrationController;
+use CompanyRegistration\Controller\RegistrationController;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
-use YawikCompanyRegistration\Options\RegisterControllerOptions;
+use CompanyRegistration\Options\RegisterControllerOptions;
 
 /**
  * Class RegisterFactory

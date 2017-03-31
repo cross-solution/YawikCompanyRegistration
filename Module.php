@@ -8,7 +8,7 @@
  * @author    weitz@cross-solution.de
  */
 
-namespace YawikCompanyRegistration;
+namespace CompanyRegistration;
 
 use Core\ModuleManager\ModuleConfigLoader;
 use Zend\ModuleManager\Feature\DependencyIndicatorInterface;
