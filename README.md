@@ -18,7 +18,7 @@ a running YAWIK System
 Installation
 ------------
 
-drop the YawikCompanyRegistration module into your <YAWIK>/module/ directory. 
+drop the CompanyRegistration module into your <YAWIK>/module/ directory. 
 Make sure the module is loaded by adding "CompanyRegistration" to the mudules[] 
 array in https://github.com/cross-solution/YAWIK/blob/develop/config/config.php
 
