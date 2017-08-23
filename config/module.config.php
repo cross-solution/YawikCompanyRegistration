@@ -19,7 +19,7 @@ return array(
 
     'view_manager' => array(
         'template_map' => array(
-            'registration\completed' => __DIR__ . '/../view/yawik-company-registration/registration/complete.phtml',
+            'registration\completed' => __DIR__ . '/../view/company-registration/registration/complete.phtml',
         ),
 
         'template_path_stack' => array(
