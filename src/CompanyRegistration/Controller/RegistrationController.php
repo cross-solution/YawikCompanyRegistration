@@ -29,15 +29,37 @@ class RegistrationController extends AbstractCoreController
      */
     protected $options;
 
-    /**
-     * Module options
-     *
-     * @param AbstractOptions $options
-     */
-    public function __construct(AbstractOptions $options)
+    protected $repositories;
+    
+    protected $authRegisterService;
+    
+    protected $logger;
+    
+    protected $formManager;
+	
+	/**
+	 * Module options
+	 *
+	 * @param AbstractOptions $options
+	 * @param $repositories
+	 * @param $authRegisterService
+	 * @param $logger
+	 * @param $formManager
+	 */
+    public function __construct(
+    	AbstractOptions $options,
+		$repositories,
+		$authRegisterService,
+	    $logger,
+		$formManager
+    )
     {
-        //parent::__construct();
         $this->options = $options;
+	    $this->repositories = $repositories;
+	    $this->authRegisterService = $authRegisterService;
+	    $this->logger = $logger;
+	    $this->formManager = $formManager;
+        
         return $this;
     }
 
@@ -48,12 +70,11 @@ class RegistrationController extends AbstractCoreController
     {
         /* @var $request \Zend\Http\Request */
         $request                  = $this->getRequest();
-        $services                 = $this->getServiceLocator();
-        $repositories             = $services->get('repositories');
+        $repositories             = $this->repositories;
         $repositoriesOrganization = $repositories->get('Organizations/Organization');
-        $registerService          = $services->get('Auth\Service\Register');
-        $logger                   = $services->get('Core/Log');
-        $formManager              = $services->get('FormElementManager');
+        $registerService          = $this->authRegisterService;
+        $logger                   = $this->logger;
+        $formManager              = $this->formManager;
         /* @var \CompanyRegistration\Form\Register $form  */
         $form                     = $formManager->get('Auth\Form\Register',['role'=>$this->params( User::ROLE_USER, User::ROLE_RECRUITER )]);
         /* @var \Auth\Form\Login $formLogin  */

@@ -26,7 +26,7 @@ class RegisterControllerFactoryTest extends \PHPUnit_Framework_TestCase
         $this->testedObj = new RegisterControllerFactory();
     }
 
-    public function testCreateService()
+    public function testInvokation()
     {
         $sm = clone Bootstrap::getServiceManager();
         $sm->setAllowOverride(true);
@@ -39,13 +39,16 @@ class RegisterControllerFactoryTest extends \PHPUnit_Framework_TestCase
         
         $options = new ModuleOptions();
 
+        $repo = $this->getMockBuilder('repositories')->getMock();
+        
         $sm->setService('Auth\Service\Register', $registerServiceMock);
         $sm->setService('Core/Log', $loggerMock);
         $sm->setService('Auth/ModuleOptions', $options);
-
+		$sm->setService('repositories',$repo);
+		
         $controllerManager = new ControllerManager($sm);
 
-        $result = $this->testedObj->createService($controllerManager);
+        $result = $this->testedObj->__invoke($sm,'SomeName');
 
         $this->assertInstanceOf('CompanyRegistration\Controller\RegistrationController', $result);
     }

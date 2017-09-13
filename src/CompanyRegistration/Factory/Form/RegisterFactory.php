@@ -11,8 +11,8 @@ namespace CompanyRegistration\Factory\Form;
 use CompanyRegistration\Form\Register;
 use CompanyRegistration\Options\RegistrationFormOptions;
 use Auth\Form\RegisterInputFilter;
-use Zend\ServiceManager\FactoryInterface;
-use Zend\ServiceManager\ServiceLocatorInterface;
+use Interop\Container\ContainerInterface;
+use Zend\ServiceManager\Factory\FactoryInterface;
 use Auth\Options\CaptchaOptions;
 
 class RegisterFactory implements FactoryInterface
@@ -29,34 +29,26 @@ class RegisterFactory implements FactoryInterface
             $this->role='recruiter';
         }
     }
-
-    /**
-     * Create service
-     *
-     * @param ServiceLocatorInterface $serviceLocator
-     *
-     * @return Register
-     */
-    public function createService(ServiceLocatorInterface $serviceLocator)
-    {
-        /**
-         * @var $serviceLocator \Zend\Form\FormElementManager
-         * @var $filter RegisterInputFilter
-         */
-        $filter = $serviceLocator->getServiceLocator()->get('Auth\Form\RegisterInputFilter');
-
-        /* @var $config CaptchaOptions */
-        $config = $serviceLocator->getServiceLocator()->get('Auth/CaptchaOptions');
-
-        /* @var $configForm RegistrationFormOptions */
-        $formOptions = $serviceLocator->getServiceLocator()->get('CompanyRegistration/RegistrationFormOptions');
-
-        $form = new Register(null, $config, $formOptions, $this->role);
-
-        $form->setAttribute('id', 'registration');
-
-        $form->setInputfilter($filter);
-
-        return $form;
-    }
+	
+	public function __invoke( ContainerInterface $container, $requestedName, array $options = null )
+	{
+		/**
+		 * @var $filter RegisterInputFilter
+		 */
+		$filter = $container->get('Auth\Form\RegisterInputFilter');
+		
+		/* @var $config CaptchaOptions */
+		$config = $container->get('Auth/CaptchaOptions');
+		
+		/* @var $configForm RegistrationFormOptions */
+		$formOptions = $container->get('CompanyRegistration/RegistrationFormOptions');
+		
+		$form = new Register(null, $config, $formOptions, $this->role);
+		
+		$form->setAttribute('id', 'registration');
+		
+		$form->setInputfilter($filter);
+		
+		return $form;
+	}
 }
