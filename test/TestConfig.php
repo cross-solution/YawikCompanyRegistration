@@ -1,12 +1,14 @@
 <?php
+$commonModules = include __DIR__.'/../../../config/common.modules.php';
+$modules = array_merge($commonModules,[
+	'Core',
+	'Auth',
+	'Jobs',
+	'Organizations',
+	'CompanyRegistration',
+]);
 return [
-    'modules' => [
-        'Core',
-        'Auth',
-        'Jobs',
-        'Organizations',
-        'CompanyRegistration',
-    ],
+    'modules' => $modules,
     'module_listener_options' => [
         'module_paths' => [
             './module',

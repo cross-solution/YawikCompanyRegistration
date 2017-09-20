@@ -10,6 +10,7 @@
 
 namespace CompanyRegistration\Form;
 
+use Auth\Form\RegisterFormInterface;
 use CompanyRegistration\Options\RegistrationFormOptions;
 use Core\Form\ButtonsFieldset;
 use Core\Form\Form;
@@ -19,7 +20,7 @@ use Zend\Form\Fieldset;
 use Auth\Options\CaptchaOptions;
 use Auth\Entity\User;
 
-class Register extends Form
+class Register extends Form implements RegisterFormInterface
 {
     public function __construct($name = 'register-form', CaptchaOptions $options, RegistrationFormOptions $formOptions, $role = User::ROLE_RECRUITER)
     {

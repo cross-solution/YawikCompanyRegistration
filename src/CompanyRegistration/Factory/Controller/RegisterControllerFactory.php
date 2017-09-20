@@ -11,8 +11,8 @@
 namespace CompanyRegistration\Factory\Controller;
 
 use CompanyRegistration\Controller\RegistrationController;
-use Zend\ServiceManager\FactoryInterface;
-use Zend\ServiceManager\ServiceLocatorInterface;
+use Interop\Container\ContainerInterface;
+use Zend\ServiceManager\Factory\FactoryInterface;
 use CompanyRegistration\Options\RegisterControllerOptions;
 
 /**
@@ -21,18 +21,20 @@ use CompanyRegistration\Options\RegisterControllerOptions;
  */
 class RegisterControllerFactory implements FactoryInterface
 {
-    /**
-     * Create service
-     *
-     * @param ServiceLocatorInterface $serviceLocator
-     *
-     * @return RegistrationController
-     */
-    public function createService(ServiceLocatorInterface $serviceLocator)
-    {
-
-        $options = new RegisterControllerOptions(array());
-
-        return new RegistrationController($options);
-    }
+	public function __invoke( ContainerInterface $container, $requestedName, array $options = null )
+	{
+		$options = new RegisterControllerOptions(array());
+		
+		$repositories = $container->get('repositories');
+		$authRegisterService = $container->get('Auth\Service\Register');
+		$logger = $container->get('Core/Log');
+		$formManager = $container->get('FormElementManager');
+		return new RegistrationController(
+			$options,
+			$repositories,
+			$authRegisterService,
+			$logger,
+			$formManager
+		);
+	}
 }
