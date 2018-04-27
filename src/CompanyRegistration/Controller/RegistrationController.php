@@ -79,7 +79,8 @@ class RegistrationController extends AbstractCoreController
         $form                     = $formManager->get('Auth\Form\Register',['role'=>$this->params( User::ROLE_USER, User::ROLE_RECRUITER )]);
         /* @var \Auth\Form\Login $formLogin  */
         $formLogin                = $formManager->get('Auth\Form\Login');
-        $formLogin->setAttribute("action", "/de/login?ref=".urlencode("/de/jobs/edit")."&req=1");
+        $loginRef = $this->params()->fromQuery('ref', '/de/jobs/edit');
+        $formLogin->setAttribute("action", "/de/login?ref=" . $loginRef . "&req=1");
         $formLogin->setAttribute("class", "form-horizontal");
         $viewModel                = new ViewModel();
 
