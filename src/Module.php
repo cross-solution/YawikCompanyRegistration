@@ -26,25 +26,7 @@ class Module implements DependencyIndicatorInterface
      */
     public function getConfig()
     {
-        return ModuleConfigLoader::load(__DIR__ . '/config');
-    }
-
-    /**
-     * Loads module specific autoloader configuration.
-     *
-     * @return array
-     */
-    public function getAutoloaderConfig()
-    {
-
-        return array(
-            'Zend\Loader\StandardAutoloader' => array(
-                'namespaces' => array(
-                    __NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__,
-                    __NAMESPACE__ . 'Test' => __DIR__ . '/test/' . __NAMESPACE__ . 'Test'
-                ),
-            ),
-        );
+        return ModuleConfigLoader::load(__DIR__ . '/../config');
     }
 
     public function getModuleDependencies()
