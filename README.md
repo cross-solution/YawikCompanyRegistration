@@ -7,8 +7,8 @@ entities are created.
 
 Build status: 
 
-[![Build Status](https://api.travis-ci.org/yawik/CompanyRegistration.svg)](https://travis-ci.org/yawik/CompanyRegistration)
-[![Coverage Status](https://coveralls.io/repos/github/yawik/CompanyRegistration/badge.svg?branch=develop)](https://coveralls.io/github/yawik/CompanyRegistration?branch=develop)
+[![Build Status](https://travis-ci.org/yawik/CompanyRegistration.svg?branch=master)](https://travis-ci.org/yawik/CompanyRegistration)
+[![Coverage Status](https://coveralls.io/repos/github/yawik/CompanyRegistration/badge.svg?branch=master)](https://coveralls.io/github/yawik/CompanyRegistration?branch=master)
 
 Requirements
 ------------
@@ -17,14 +17,10 @@ a running YAWIK System
 
 Installation
 ------------
-
-drop the CompanyRegistration module into your <YAWIK>/module/ directory. 
-Make sure the module is loaded by adding "CompanyRegistration" to the mudules[] 
-array in https://github.com/cross-solution/YAWIK/blob/develop/config/config.php
-
-OR using composer
-
- composer require yawik/company-registration
+```sh
+$ cd /path/to/yawik
+$ composer require yawik/company-registration
+```
 
 
 License

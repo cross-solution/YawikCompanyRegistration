@@ -3,11 +3,13 @@
 <phpunit bootstrap="./vendor/autoload.php" colors="true">
     <php>
         <env name="APPLICATION_ENV" value="test"/>
-        <env name="APP_CONFIG_DIR" value="./test/config"/>
     </php>
     <filter>
         <whitelist>
             <directory suffix=".php">./src</directory>
+            <exclude>
+                <directory>./src/Behat</directory>
+            </exclude>
         </whitelist>
     </filter>
     <testsuites>
