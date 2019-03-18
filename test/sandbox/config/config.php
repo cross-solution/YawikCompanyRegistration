@@ -5,6 +5,7 @@ return [
     'modules' => [
         'Core',
         'Auth',
+        "Settings",
         'Jobs',
         'Organizations',
         'CompanyRegistration',
