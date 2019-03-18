@@ -3,4 +3,7 @@ view/.*
 config/build.properties
 test/build
 /vendor/
+node_modules/
 components
+composer.lock
+package-lock.json

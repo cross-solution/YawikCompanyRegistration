@@ -11,8 +11,8 @@ namespace CompanyRegistrationTest\Factory\Controller;
 
 use CompanyRegistration\Factory\Controller\RegisterControllerFactory;
 use Auth\Options\ModuleOptions;
-use Test\Bootstrap;
 use Zend\Mvc\Controller\ControllerManager;
+use CoreTest\Bootstrap;
 
 class RegisterControllerFactoryTest extends \PHPUnit_Framework_TestCase
 {
@@ -44,11 +44,11 @@ class RegisterControllerFactoryTest extends \PHPUnit_Framework_TestCase
         $sm->setService('Auth\Service\Register', $registerServiceMock);
         $sm->setService('Core/Log', $loggerMock);
         $sm->setService('Auth/ModuleOptions', $options);
-		$sm->setService('repositories',$repo);
-		
+        $sm->setService('repositories', $repo);
+        
         $controllerManager = new ControllerManager($sm);
 
-        $result = $this->testedObj->__invoke($sm,'SomeName');
+        $result = $this->testedObj->__invoke($sm, 'SomeName');
 
         $this->assertInstanceOf('CompanyRegistration\Controller\RegistrationController', $result);
     }
