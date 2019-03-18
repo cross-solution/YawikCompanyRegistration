@@ -6,6 +6,8 @@ return [
         'Core',
         'Auth',
         "Settings",
+        "Applications",
+        "Cv",
         'Jobs',
         'Organizations',
         'CompanyRegistration',
