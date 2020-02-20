@@ -12,14 +12,14 @@ namespace CompanyRegistration\Test\Options;
 
 use CompanyRegistration\Options\RegistrationFormOptions as Options;
 
-class RegistrationFormOptionsTest extends \PHPUnit_Framework_TestCase
+class RegistrationFormOptionsTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @var Options $options
      */
     protected $options;
 
-    public function setUp()
+    public function setUp(): void
     {
         $options = new Options;
         $this->options = $options;

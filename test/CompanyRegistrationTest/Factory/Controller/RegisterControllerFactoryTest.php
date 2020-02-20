@@ -14,14 +14,14 @@ use Auth\Options\ModuleOptions;
 use Zend\Mvc\Controller\ControllerManager;
 use CoreTest\Bootstrap;
 
-class RegisterControllerFactoryTest extends \PHPUnit_Framework_TestCase
+class RegisterControllerFactoryTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @var RegisterControllerFactory
      */
     private $testedObj;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->testedObj = new RegisterControllerFactory();
     }
